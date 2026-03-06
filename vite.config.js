@@ -30,7 +30,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/",
+  base: "/Mask-Marval-App/",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
