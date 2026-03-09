@@ -41,7 +41,10 @@ async function init() {
   await startCamera("user");
 
   if (selectedMask.value?.maskImage) {
-    await setMask(selectedMask.value.maskImage);
+
+    const maskPath = `${import.meta.env.BASE_URL}${selectedMask.value.maskImage}`
+    console.log("Setting mask:", maskPath);
+    await setMask(maskPath);
   }
 
   startTracking();
