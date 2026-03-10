@@ -58,7 +58,8 @@ onMounted(() => {
 watch(
   selectedMask,
   async (newMask) => {
-    if (newMask?.maskImage) await setMask(newMask.maskImage);
+    const maskPath = `${import.meta.env.BASE_URL}${newMask?.maskImage}`;
+    if (newMask?.maskImage) await setMask(maskPath);
   },
   { deep: true },
 );

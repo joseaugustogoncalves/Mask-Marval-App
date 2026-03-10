@@ -106,34 +106,28 @@ async function setMask(maskImageUrl) {
 function drawMaskCanvas(ctx, landmarks) {
   if (!currentMaskImage.value || !currentMaskImage.value.complete) return;
 
-  const jawline = landmarks.getJawOutline();
+  const jaw = landmarks.getJawOutline();
+
+  // extremos da cara
+  const left = jaw[0];
+  const right = jaw[16];
+  const chin = jaw[8];
+
   const nose = landmarks.getNose();
+  const noseTop = nose[0];
 
-  const allPoints = [...jawline, ...nose];
-  const xs = allPoints.map((p) => p.x);
-  const ys = allPoints.map((p) => p.y);
+  const faceWidth = right.x - left.x;
+  const faceHeight = chin.y - noseTop.y;
 
-  const faceLeft = Math.min(...xs);
-  const faceRight = Math.max(...xs);
-  const faceTop = Math.min(...ys);
-  const faceBottom = Math.max(...jawline.map((p) => p.y));
+  // aumentar para cobrir toda a face
+  const maskWidth = faceWidth * 1.8;
+  const maskHeight = faceHeight * 2.2;
 
-  const faceWidth = faceRight - faceLeft;
-  const faceHeight = faceBottom - faceTop;
-
-  const maskWidth = faceWidth * 1.5;
-  const maskHeight = faceHeight * 1.5;
-
-  const x = faceLeft + faceWidth / 2 - maskWidth / 2;
-  const y = faceTop - maskHeight * 0.15;
-
-  // debug amarelo (se isto aparecer, a máscara também aparece)
-  //ctx.fillStyle = "rgba(255,255,0,0.35)";
-  //ctx.fillRect(x, y, maskWidth, maskHeight);
+  const x = left.x - faceWidth * 0.4;
+  const y = noseTop.y - faceHeight * 0.9;
 
   ctx.drawImage(currentMaskImage.value, x, y, maskWidth, maskHeight);
 }
-
 async function detectFaceLoop() {
   if (!running) return;
 

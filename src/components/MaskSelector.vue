@@ -56,6 +56,8 @@ const { masks, capturedPhoto } = storeToRefs(maskStore);
 defineEmits(["capture", "openGallery", "openEffects"]);
 
 function selectMask(maskId) {
+  //const maskPath = `${import.meta.env.BASE_URL}${selectedMask.value.maskImage}`
+  //alert("Mask " + maskId + " selected!");
   maskStore.selectMask(maskId);
 }
 </script>
