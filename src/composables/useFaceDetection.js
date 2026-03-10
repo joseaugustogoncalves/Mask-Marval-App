@@ -128,8 +128,8 @@ function drawMaskCanvas(ctx, landmarks) {
   const y = faceTop - maskHeight * 0.15;
 
   // debug amarelo (se isto aparecer, a máscara também aparece)
-  ctx.fillStyle = "rgba(255,255,0,0.35)";
-  ctx.fillRect(x, y, maskWidth, maskHeight);
+  //ctx.fillStyle = "rgba(255,255,0,0.35)";
+  //ctx.fillRect(x, y, maskWidth, maskHeight);
 
   ctx.drawImage(currentMaskImage.value, x, y, maskWidth, maskHeight);
 }
@@ -172,8 +172,8 @@ async function detectFaceLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // azul debug (agora também pós-await)
-    ctx.fillStyle = "rgba(0,255,255,0.9)";
-    ctx.fillRect(20, 20, 80, 80);
+    //ctx.fillStyle = "rgba(0,255,255,0.9)";
+    //ctx.fillRect(20, 20, 80, 80);
 
     if (detections) {
       isFaceDetected.value = true;
@@ -184,8 +184,8 @@ async function detectFaceLoop() {
       ctx.scale(-1, 1);
 
       // ✅ amarelo pós-await (agora vai ser visível)
-      ctx.fillStyle = "rgba(255,255,0,0.6)";
-      ctx.fillRect(20, 120, 220, 140);
+      //ctx.fillStyle = "rgba(255,255,0,0.6)";
+      //ctx.fillRect(20, 120, 220, 140);
 
       // landmarks no espaço do canvas
       const displaySize = { width: canvas.width, height: canvas.height };
