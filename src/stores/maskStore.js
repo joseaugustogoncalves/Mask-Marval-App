@@ -31,6 +31,13 @@ export const useMaskStore = defineStore("mask", () => {
       maskImage: "/masks/captainamerica.png", // ← Caminho local
       active: false,
     },
+    {
+      id: "Batman",
+      name: "Batman",
+      thumbnail: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6h7PSgmbFDYGJbpL4J0Zj5oPwQ1xLmv-kv25cGJ_WVlaiH5qY22yOEBmOEwYHN_O3LdCvVEMJbjO8Iv73EpjuhHctY4xItBOrB1N7S8wTVGltXPlz6oPEDwgrdDVIYOfRmlii1V-jEaTOOXqII8Sx6G7CrOyXrOnvQMyGV5mshmQ4_EW_bGTuuSCwPKThgOSlGnp6iD0qWCnRJ9gogmArf34YirJF45vemP0DMxMSik7i1iTJ8xhqEGRX1IhoKdCYKUxNGfux2Ig",
+      maskImage: "/masks/batman.png", // ← Caminho local
+      active: false,
+    },
   ]);
 
   const selectedMask = ref(masks.value[1]); // Iron Man por padrão

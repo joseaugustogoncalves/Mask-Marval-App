@@ -236,6 +236,9 @@ function captureImage() {
   out.width = w;
   out.height = h;
 
+  // aplicar filtro preto e branco
+  ctx.filter = "grayscale(100%)";
+
   // 1) desenha o VÍDEO como object-cover + selfie (espelhado)
   const vw = video.videoWidth;
   const vh = video.videoHeight;
@@ -252,7 +255,7 @@ function captureImage() {
   ctx.drawImage(video, dx, dy, dw, dh);
   ctx.restore();
 
-  // 2) desenha o OVERLAY SEM flip (porque ele já está “espelhado” nos pixels)
+  // 2) desenha o overlay (máscara)
   ctx.drawImage(overlay, 0, 0);
 
   return out.toDataURL("image/png");
