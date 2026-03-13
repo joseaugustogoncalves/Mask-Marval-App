@@ -9,14 +9,14 @@
 
     <h1 class="text-xl font-black italic tracking-tighter uppercase leading-none">Mask <span class="text-primary italic">Lab</span></h1>
 
-    <div class="flex gap-4">
+    <!-- <div class="flex gap-4">
       <button @click="$emit('openEmail')" class="flex items-center justify-center size-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors">
         <span class="material-symbols-outlined text-white">mail</span>
       </button>
       <button @click="$emit('switchCamera')" class="flex items-center justify-center size-10 rounded-lg bg-white/10 hover:bg-white/20 transition-colors">
         <span class="material-symbols-outlined text-white">flip_camera_ios</span>
       </button>
-    </div>
+    </div> -->
   </div>
 </template>
 

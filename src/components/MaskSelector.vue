@@ -28,7 +28,7 @@
         <div class="absolute inset-0 rounded-full border-4 border-white scale-110 group-active:scale-100 transition-transform"></div>
         <div class="size-16 rounded-full border-4 border-black bg-white flex items-center justify-center">
           <div class="size-12 rounded-full bg-primary/20 flex items-center justify-center">
-            <span class="material-symbols-outlined text-black font-black text-3xl">photo_camera</span>
+            <span class="material-symbols-outlined text-black font-black text-xs">PRESS</span>
           </div>
         </div>
       </button>
@@ -39,10 +39,10 @@
       </div>
 
       <!-- Effects Button -->
-      <button @click="$emit('openEffects')" class="absolute right-8 flex flex-col items-center justify-center text-white/60 hover:text-white">
+      <!-- <button @click="$emit('openEffects')" class="absolute right-8 flex flex-col items-center justify-center text-white/60 hover:text-white">
         <span class="material-symbols-outlined text-3xl">filter_vintage</span>
         <span class="text-[8px] font-black uppercase mt-1">Effects</span>
-      </button>
+      </button> -->
     </div>
   </div>
 </template>
