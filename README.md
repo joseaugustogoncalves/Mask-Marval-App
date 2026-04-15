@@ -61,3 +61,26 @@ npm install face-api.js
 
 # Instalar PWA plugin
 npm install -D vite-plugin-pwa
+
+Como publicar Vue no GitHub Pages
+1️⃣ No projeto Vue/Vite
+npm run build
+
+Vai gerar:
+
+dist/
+2️⃣ Criar branch gh-pages
+
+Instala helper:
+
+npm install gh-pages --save-dev
+3️⃣ No package.json
+{
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  }
+}
+4️⃣ Deploy
+npm run deploy
+
+Vai publicar automaticamente no GitHub Pages.
