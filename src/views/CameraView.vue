@@ -52,15 +52,16 @@ const showEmailInput = ref(false);
 const router = useRouter();
 const maskStore = useMaskStore();
 const { captureImage, switchCamera } = useFaceDetection();
+const dataUrl = ref(null);
 
 function handleCapture() {
+  dataUrl.value = captureImage();
   showEmailInput.value = true;
 }
 
 async function confirmSend() {
   requestAnimationFrame(async () => {
-    const dataUrl = captureImage();
-    if (!dataUrl) return;
+    if (!dataUrl.value) return;
 
     const ok = await sendPhoto(email.value);
 
@@ -104,9 +105,9 @@ function handleOpenEffects() {
 }
 
 async function sendPhoto(email) {
-  const imageData = captureImage();
+  //const imageData = captureImage();
 
-  if (!imageData) {
+  if (!dataUrl) {
     alert("Erro ao capturar imagem");
     return false;
   }
@@ -120,12 +121,12 @@ async function sendPhoto(email) {
       },
       body: JSON.stringify({
         email: email,
-        image: imageData,
+        image: dataUrl.value,
       }),
     });
 
     const data = await response.json();
-
+    dataUrl.value = null; // Clear the captured image after sending
     return data.success === true;
   } catch (error) {
     console.error(error);
