@@ -11,12 +11,12 @@
     <!-- Mask Cards -->
     <div class="flex-1 overflow-x-auto flex flex-nowrap items-center px-6 gap-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <button v-for="mask in masks" :key="mask.id" @click="selectMask(mask.id)" class="group flex flex-col items-center gap-3 shrink-0">
-        <div :class="['size-24 rounded-2xl bg-zinc-900 p-2 overflow-hidden transition-all', mask.active ? 'border-4 border-white shadow-[4px_4px_0px_0px_#ffffff]' : 'border-4 border-zinc-800 hover:border-white']">
-          <div class="w-full h-full bg-cover bg-center rounded-lg transition-all" :class="!mask.active && 'grayscale group-hover:grayscale-0'" :style="{ backgroundImage: `url(${mask.thumbnail})` }" />
+        <div :class="['size-24 rounded-2xl bg-rose-300 p-2 overflow-hidden transition-all', mask.active ? 'border-4 border-white shadow-[4px_4px_0px_0px_#ffffff]' : 'border-4 border-zinc-800 hover:border-white']">
+          <div class="w-full h-full bg-cover bg-center rounded-lg transition-all" :style="{ backgroundImage: `url('${mask.thumbnail}')` }" />
         </div>
 
         <span :class="['text-xs font-black uppercase italic transition-colors', mask.active ? 'text-white' : 'text-zinc-500 hover:text-white']">
-          {{ mask.name }}
+          <!-- {{ mask.name }} -->
         </span>
       </button>
     </div>
